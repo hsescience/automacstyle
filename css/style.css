@@ -79,15 +79,27 @@ input::-ms-clear {
  	float: left;
  	text-align: left;
  	vertical-align: middle;
- 
- }
+}
+
+.leftcolonfac {
+	padding-left: 84px;
+ 	width: 15%;
+ 	float: left;
+ 	text-align: left;
+ 	vertical-align: middle;
+}
 
  .rightcolon {
  	width: 49%;
  	float: right;
  }
 
-.buttoninput{
+ .rightcolonfac {
+ 	width: 72%;
+ 	float: right;
+ }
+
+.buttoninput, .buttoninputfac{
 	position: relative;
  	border: solid 3px #a3a2a1;
 	width: 348px;
@@ -95,6 +107,10 @@ input::-ms-clear {
 	border-radius: 6px;
 	top: -8px;
 	cursor: pointer;
+}
+
+.buttoninputfac {
+	width: 572px;
 }
 
 .liststatus, .listfilial {
