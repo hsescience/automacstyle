@@ -14,6 +14,47 @@ var filialznach = new Array();
 	filialznach[2] = "Нижний Новгород";
 	filialznach[3] = "Пермь";
 	filialznach[4] = "ФДП";
+var facultyznach = new Array(); //осторожно, зависит от верхнего
+
+for(var i=0; i<4; i++){
+    facultyznach[i] = new Array();
+}
+
+facultyznach[0][0] = "Факультет истории";
+facultyznach[0][0] = "Факультет медиакоммуникаций";
+facultyznach[0][0] = "Факультет мировой экономики и мировой политики";
+facultyznach[0][0] = "Факультет прикладной политологии";
+facultyznach[0][0] = "Отделение интегрированных коммуникаций";
+facultyznach[0][0] = "Факультет психологии";
+facultyznach[0][0] = "Факультет социологии";
+facultyznach[0][0] = "Факультет филологии";
+facultyznach[0][0] = "Факультет философии";
+facultyznach[0][0] = "Отделение востоковедения";
+facultyznach[0][0] = "Отделение культурологии";
+facultyznach[0][0] = "Факультет дизайна";
+facultyznach[0][0] = "Факультет бизнес-информатики";
+facultyznach[0][0] = "Факультет государственного и муниципального управления";
+facultyznach[0][0] = "Факультет логистики";
+facultyznach[0][0] = "Факультет менеджмента";
+facultyznach[0][0] = "Факультет экономики";
+facultyznach[0][0] = "Отделение статистики, анализа данных и демографии";
+facultyznach[0][0] = "Совместный бакалавриат ВШЭ и РЭШ";
+facultyznach[0][0] = "Международный институт экономики и финансов";
+facultyznach[0][0] = "Факультет истории";
+facultyznach[0][0] = "Факультет истории";
+facultyznach[0][0] = "Факультет истории";
+facultyznach[0][0] = "Факультет истории";
+facultyznach[0][0] = "Факультет истории";
+facultyznach[0][0] = "Факультет истории";
+facultyznach[0][0] = "Факультет истории";
+
+
+
+
+
+
+
+
 
 function statusonclick() {
 	if(statusperson==false) {
@@ -34,7 +75,7 @@ function filialonclick() {
 			$('.listfilial').show();
   
 			$('.listfilial').animate(
-				{height:"+=192px"},500);
+				{height:"+=154px"},500);
 			filialflag = true;
 	}
 }
@@ -45,7 +86,7 @@ function filialitemclick(numberelement) {
 	//alert(document.auto.status.value);
 
 	$('.listfilial').animate(
-				{height:"-=192px"},500
+				{height:"-=154px"},500
 				,function(){
 					$('.listfilial').hide();
 					filialflag = false;
