@@ -9,11 +9,13 @@
 		<div id = "content_auto">
 			
 			<form name = "auto" id = "auto" method = "GET" action = "document.replace(hz.html);">
-				<input type = "text" name = "fio" id = "fio" />
+				<input type = "text" name = "fio" id = "fio" placeholder = "Представтесь, пожалуйста" title="Введите свое ФИО" onkeypress="if(event.keyCode == 13) return false;" AUTOCOMPLETE="off"/>
+				<div style = "clear:both; margin-top:30px;"></div>
 				<div class = "colon">
-					<div class = "colonitemleft">Ваш статус относительно НИУ ВШЭ</div>
-					<div class = "colonitemright">
-						<div class = "buttonselect">
+					<div class = "leftcolon">Ваш статус относительно НИУ ВШЭ</div>
+					<div class = "rightcolon">
+						<div class = "buttoninput">
+							<div class = "buttoninputtext">Выбирите свой статус</div>
 						</div>
 					</div>
 				</div>
