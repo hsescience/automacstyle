@@ -117,7 +117,30 @@ function filialitemclick(numberelement) {
 	
 }
 
+function facultyitemclick(numberelement) {
+	document.getElementById("facultytext").innerHTML = facultyznach[facultyfilial][numberelement];
+	document.auto.faculty.value = numberelement;
+	//alert(document.auto.status.value);
 
+if (facultyznach[facultyfilial].length<=6){
+			
+
+			$('#listfaculty').animate(
+				{height:"-="+38.3*facultyznach[facultyfilial].length+"px"},500,function(){
+					$('#listfaculty').hide();
+					facultyflag = false;}
+				);
+			}else{
+				$('#listfaculty').animate(
+				{height:"-="+38.3*6+"px"},500,function(){
+					$('#listfaculty').hide();
+					facultyflag = false;}
+				);
+			}
+
+
+	
+}
 
 
 function statitemclick(numberelement) {
@@ -129,11 +152,9 @@ function statitemclick(numberelement) {
 				{height:"-=233px"},500
 				,function(){
 					$('.liststatus').hide();
-					statusperson = false;
+					facultyflag = false;
                 }
-			);
-			
-	
+			);	
 }
 
 function facultyonclick() {
@@ -142,7 +163,7 @@ function facultyonclick() {
 		filialonclick();
 	}
 	else {
-		alert(facultyfilial);
+	
 		document.getElementById("listfaculty").innerHTML ="";
 		for (var i = facultyznach[facultyfilial].length - 1; i >= 0; i--) {
 					
@@ -164,7 +185,7 @@ function facultyonclick() {
 				{height:"+="+38.3*6+"px"},500, function(){
 					 jQuery('#listfaculty').jScrollPane({showArrows: true,
 						verticalDragMinHeight: 37,
-       	    			verticalDragMaxHeight: 37});
+       	    			verticalDragMaxHeight: 37}); facultyflag = true;
 				}
 				);
 			}
