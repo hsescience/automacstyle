@@ -95,7 +95,7 @@ input::-ms-clear {
 	cursor: pointer;
 }
 
-.list {
+.liststatus {
 	position: relative;
 	border: solid 3px #a3a2a1;
 	margin-left: -3px;
@@ -103,10 +103,10 @@ input::-ms-clear {
 	width: 100%;
 	border-radius: 6px;
 	cursor: pointer;
-	height: 233px;
+	height: 0px;
 	z-index: 23;
 	background: #fdf8ef;
-
+	visibility: hidden;
 }
 
 .buttoninputtext{
