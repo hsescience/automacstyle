@@ -17,6 +17,7 @@ body {
 	-moz-box-shadow: 0 5px 13px rgba(0,3,1,.75);
 	box-shadow: 0 5px 13px rgba(0,3,1,.75);
 	border: solid 2px #a3a2a1;
+	border-radius: 4px;
 	width: 973px;
 	height: 692px;
 	position: relative;
@@ -86,12 +87,25 @@ input::-ms-clear {
 
 .buttoninput{
 	position: relative;
- 	border: solid 2px #a3a2a1;
+ 	border: solid 3px #a3a2a1;
 	width: 348px;
 	height: 44px;
 	border-radius: 6px;
 	top: -7px;
 	cursor: pointer;
+}
+
+.list {
+	position: relative;
+	border: solid 3px #a3a2a1;
+	margin-left: -3px;
+	margin-top: -3px;
+	width: 100%;
+	border-radius: 6px;
+	cursor: pointer;
+	height: 123px;
+	z-index: 23;
+	background: #fdf8ef;
 }
 
 .buttoninputtext{
@@ -101,4 +115,10 @@ input::-ms-clear {
 	font-family: "LittleShift";
 	font-size: 20px;
 	color: #515050;
+}
+
+.littlebutton {
+	position: absolute;
+	right: 12px;
+	top: 11px;
 }
