@@ -1,6 +1,8 @@
 statusperson = false;
 filialflag = false;
 facultyon = false;
+facultyfilial = 0;
+facultyflag= false;
 
 var statusznach = new Array();
 	statusznach[0] = "Абитуриент НИУ ВШЭ";
@@ -107,6 +109,8 @@ function filialitemclick(numberelement) {
 				,function(){
 					$('.listfilial').hide();
 					filialflag = false;
+					facultyon = true;
+					facultyfilial = numberelement;
                 }
 			);
 			
@@ -135,6 +139,37 @@ function statitemclick(numberelement) {
 function facultyonclick() {
 	if (facultyon==false) {
 		alert("Выбирите сначала филиал НИУ ВШЭ");
-		
+		filialonclick();
+	}
+	else {
+		alert(facultyfilial);
+		for (var i = facultyznach[facultyfilial].length - 1; i >= 0; i--) {
+					document.getElementById("listfaculty").innerHTML ="";
+					document.getElementById("listfaculty").innerHTML +='<div class = "listitem" onclick = "facultyitemclick('+i+')">'+facultyznach[facultyfilial][i]+'</div>';
+			
+		};
+		//**********************************************
+		if (facultyflag ==false) {
+
+
+		}
 	}
 }
+
+
+if (countrybrperson == false)
+		{
+			$('#buttoncountrybr').css("display", "none");
+			$('#listcountrybr').css("display", "block");
+  
+			$('#listcountrybr').animate(
+				{height:"+=214px"},500, function (){
+					 jQuery('#listcountrybr').jScrollPane({showArrows: true,
+						verticalDragMinHeight: 37,
+       	    			verticalDragMaxHeight: 37});
+				}
+				);
+			countrybrperson = true;
+		}else {
+			
+		}
