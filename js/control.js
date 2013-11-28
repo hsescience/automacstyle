@@ -3,6 +3,7 @@ filialflag = false;
 facultyon = false;
 facultyfilial = 0;
 facultyflag= false;
+countrybrflag = false;
 
 var statusznach = new Array();
 	statusznach[0] = "Абитуриент НИУ ВШЭ";
@@ -394,23 +395,25 @@ function facultyonclick() {
 	}
 }
 
-/*
-
-if (countrybrperson == false)
-		{
-			$('#buttoncountrybr').css("display", "none");
-			$('#listcountrybr').css("display", "block");
+function countrybronclick() {
+	if(countrybrflag==false) {
+		//alert("ok");
+			$('#listcountrybr').show();
   
 			$('#listcountrybr').animate(
-				{height:"+=214px"},500, function (){
+				{height:"+=230px"},500, function(){
 					 jQuery('#listcountrybr').jScrollPane({showArrows: true,
 						verticalDragMinHeight: 37,
-       	    			verticalDragMaxHeight: 37});
-				}
-				);
-			countrybrperson = true;
-		}else {
-			
-		}
+       	    			verticalDragMaxHeight: 37}); facultyflag = true;
+				});
+			countrybrflag = true;
+	}
+}
 
-*/
+function addcountriees() {
+	for (var i = 0; i <= (countrieslist.length - 1); i++) {
+		document.getElementById("listcountrybr").innerHTML +='<div class = "listitem" onclick = " countrybritemclick('+i+')">'+countrieslist[i]+'</div>';
+		//document.getElementById("listcountryliv").innerHTML +='<div class = "listitem" onclick = " countrylivonclick('+i+')">'+countrieslist[i]+'</div>';
+		
+	};
+}

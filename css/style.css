@@ -113,7 +113,7 @@ input::-ms-clear {
 	width: 612px;
 }
 
-.liststatus, .listfilial, #listfaculty {
+.liststatus, .listfilial, #listfaculty, #listcountrybr, #listcountryliv {
 	position: relative;
 	border: solid 3px #a3a2a1;
 	margin-left: -3px;
