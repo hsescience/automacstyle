@@ -102,7 +102,7 @@ input::-ms-clear {
 .buttoninput, .buttoninputfac{
 	position: relative;
  	border: solid 3px #a3a2a1;
-	width: 348px;
+	width: 388px;
 	height: 44px;
 	border-radius: 6px;
 	top: -8px;
@@ -110,10 +110,10 @@ input::-ms-clear {
 }
 
 .buttoninputfac {
-	width: 572px;
+	width: 612px;
 }
 
-.liststatus, .listfilial {
+.liststatus, .listfilial, #listfaculty {
 	position: relative;
 	border: solid 3px #a3a2a1;
 	margin-left: -3px;

@@ -143,19 +143,37 @@ function facultyonclick() {
 	}
 	else {
 		alert(facultyfilial);
+		document.getElementById("listfaculty").innerHTML ="";
 		for (var i = facultyznach[facultyfilial].length - 1; i >= 0; i--) {
-					document.getElementById("listfaculty").innerHTML ="";
+					
 					document.getElementById("listfaculty").innerHTML +='<div class = "listitem" onclick = "facultyitemclick('+i+')">'+facultyznach[facultyfilial][i]+'</div>';
 			
 		};
 		//**********************************************
 		if (facultyflag ==false) {
 
+			if (facultyznach[facultyfilial].length<=6){
+			$('#listfaculty').show();
+
+			$('#listfaculty').animate(
+				{height:"+="+38.3*facultyznach[facultyfilial].length+"px"},500
+				);
+			}else{
+				$('#listfaculty').show();
+				$('#listfaculty').animate(
+				{height:"+="+38.3*6+"px"},500, function(){
+					 jQuery('#listfaculty').jScrollPane({showArrows: true,
+						verticalDragMinHeight: 37,
+       	    			verticalDragMaxHeight: 37});
+				}
+				);
+			}
 
 		}
 	}
 }
 
+/*
 
 if (countrybrperson == false)
 		{
@@ -173,3 +191,5 @@ if (countrybrperson == false)
 		}else {
 			
 		}
+
+*/
