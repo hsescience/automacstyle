@@ -70,14 +70,16 @@ input::-ms-clear {
  	font-family: "LittleShift";
 	font-size: 25px;
 	color: #515050;
+	height: 38px;
  }
 
  .leftcolon {
- 	width: 49%;
+ 	padding-left: 84px;
+ 	width: 42%;
  	float: left;
- 	text-align: right;
+ 	text-align: left;
  	vertical-align: middle;
- 	padding-right: 10px;
+ 
  }
 
  .rightcolon {
@@ -91,11 +93,11 @@ input::-ms-clear {
 	width: 348px;
 	height: 44px;
 	border-radius: 6px;
-	top: -7px;
+	top: -8px;
 	cursor: pointer;
 }
 
-.liststatus {
+.liststatus, .listfilial {
 	position: relative;
 	border: solid 3px #a3a2a1;
 	margin-left: -3px;
@@ -106,7 +108,7 @@ input::-ms-clear {
 	height: 0px;
 	z-index: 23;
 	background: #fdf8ef;
-	visibility: hidden;
+	display: none;
 }
 
 .buttoninputtext{
