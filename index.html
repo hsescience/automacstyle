@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="font/font.css">
 		<link type="text/css" rel="stylesheet" href="css/jquery.jscrollpane.css"/>
-
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 		<script type="text/javascript" src = "js/control.js"></script>
 		<script type="text/javascript" src = "js/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
@@ -31,7 +31,7 @@
 								<div class = "listitem" onclick = "statitemclick(5);">Родитель студента НИУ ВШЭ</div>
 							</div>
 							<div class = "buttoninputtext" id = "statustext"  onclick = "statusonclick();">Выбирите свой статус</div>
-							<img class = "littlebutton"  onclick = "statusonclick();" src = "css/littlebutton.png"/>
+							<img class = "littlebutton" id = "lbstatus" onclick = "statusonclick();" src = "css/littlebutton.png"/>
 						</div>
 					</div>
 				</div>
@@ -49,7 +49,7 @@
 								<div class = "listitem" onclick = "filialitemclick(4);">Санкт-Петербург</div>
 							</div>
 							<div class = "buttoninputtext" id = "filialtext"  onclick = "filialonclick();">Выбирите свой филиал</div>
-							<img class = "littlebutton"  onclick = "filialonclick();" src = "css/littlebutton.png"/>
+							<img class = "littlebutton" id = "lbfilial" onclick = "filialonclick();" src = "css/littlebutton.png"/>
 						</div>
 					</div>
 				</div>
@@ -57,15 +57,15 @@
 				<div style = "clear:both; margin-top:30px;"></div>
 
 				<div class = "colon">
-					<div class = "leftcolonfac">Факультет</div>
+					<div class = "leftcolon">Факультет</div>
 					<input type = "hidden" name = "faculty" id = "faculty" value = ""/>
-					<div class = "rightcolonfac">
+					<div class = "rightcolon">
 						<div class = "buttoninputfac">
 							<div id = "listfaculty">
 								
 							</div>
 							<div class = "buttoninputtext" id = "facultytext"  onclick = "facultyonclick();">Выбирите свой факультет</div>
-							<img class = "littlebutton"  onclick = "facultyonclick();" src = "css/littlebutton.png"/>
+							<img class = "littlebutton" id = "lbfaculty" onclick = "facultyonclick();" src = "css/littlebutton.png"/>
 						</div>
 						
 					</div>
@@ -82,7 +82,23 @@
 								
 							</div>
 							<div class = "buttoninputtext" id = "countrybrtext"  onclick = "countrybronclick();">Выбирите свою родную страну</div>
-							<img class = "littlebutton"  onclick = "countrybronclick();" src = "css/littlebutton.png"/>
+							<img class = "littlebutton" id = "lbcountrybr" onclick = "countrybronclick();" src = "css/littlebutton.png"/>
+						</div>
+					</div>
+				</div>
+
+				<div style = "clear:both; margin-top:30px;"></div>
+
+				<div class = "colon">
+					<div class = "leftcolon">Страна проживания</div>
+					<input type = "hidden" name = "countryliv" id = "countryliv" value = ""/>
+					<div class = "rightcolon">
+						<div class = "buttoninput">
+							<div id = "listcountryliv">
+								
+							</div>
+							<div class = "buttoninputtext" id = "countrylivtext"  onclick = "countrylivonclick();">Выбирите свою родную страну</div>
+							<img class = "littlebutton"  id = "lbcountryliv" onclick = "countrylivonclick();" src = "css/littlebutton.png"/>
 						</div>
 					</div>
 				</div>

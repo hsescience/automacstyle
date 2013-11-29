@@ -4,6 +4,9 @@ facultyon = false;
 facultyfilial = 0;
 facultyflag= false;
 countrybrflag = false;
+countrylivflag = false;
+previousitem = "";
+
 
 var statusznach = new Array();
 	statusznach[0] = "Абитуриент НИУ ВШЭ";
@@ -275,6 +278,13 @@ facultyznach[4][5] = "Факультет экономики";
     countrieslist[186] = "Япония";
 
 
+function hideitem(list) {
+	switch (list) {
+		case 
+	}
+
+}
+
 
 function statusonclick() {
 	if(statusperson==false) {
@@ -288,9 +298,24 @@ function statusonclick() {
 	}
 }
 
+function statitemclick(numberelement) {
+	document.getElementById("statustext").innerHTML = statusznach[numberelement];
+	document.auto.status.value = numberelement;
+	$('#lbstatus').hide();
+	//alert(document.auto.status.value);
+
+	$('.liststatus').animate(
+				{height:"-=233px"},500
+				,function(){
+					$('.liststatus').hide();
+					statusperson = false;
+                }
+			);	
+}
+
+
 function filialonclick() {
 	if(filialflag==false) {
-
 			
 			$('.listfilial').show();
   
@@ -304,7 +329,13 @@ function filialitemclick(numberelement) {
 	document.getElementById("filialtext").innerHTML = filialznach[numberelement];
 	document.auto.filial.value = numberelement;
 	//alert(document.auto.status.value);
+	
+	$('#lbfilial').hide();
+	document.auto.faculty.value = "";
+	document.getElementById("facultytext").innerHTML = "Выбирите свой факультет";
 
+
+	$('#lbfaculty').show();
 	$('.listfilial').animate(
 				{height:"-=195px"},500
 				,function(){
@@ -312,48 +343,6 @@ function filialitemclick(numberelement) {
 					filialflag = false;
 					facultyon = true;
 					facultyfilial = numberelement;
-                }
-			);
-			
-	
-}
-
-function facultyitemclick(numberelement) {
-	document.getElementById("facultytext").innerHTML = facultyznach[facultyfilial][numberelement];
-	document.auto.faculty.value = numberelement;
-	//alert(document.auto.status.value);
-
-if (facultyznach[facultyfilial].length<=6){
-			
-
-			$('#listfaculty').animate(
-				{height:"-="+38.3*facultyznach[facultyfilial].length+"px"},500,function(){
-					$('#listfaculty').hide();
-					facultyflag = false;}
-				);
-			}else{
-				$('#listfaculty').animate(
-				{height:"-="+38.3*6+"px"},500,function(){
-					$('#listfaculty').hide();
-					facultyflag = false;}
-				);
-			}
-
-
-	
-}
-
-
-function statitemclick(numberelement) {
-	document.getElementById("statustext").innerHTML = statusznach[numberelement];
-	document.auto.status.value = numberelement;
-	//alert(document.auto.status.value);
-
-	$('.liststatus').animate(
-				{height:"-=233px"},500
-				,function(){
-					$('.liststatus').hide();
-					facultyflag = false;
                 }
 			);	
 }
@@ -390,10 +379,41 @@ function facultyonclick() {
 				}
 				);
 			}
-
 		}
 	}
 }
+
+function facultyitemclick(numberelement) {
+	document.getElementById("facultytext").innerHTML = facultyznach[facultyfilial][numberelement];
+	document.auto.faculty.value = numberelement;
+	//alert(document.auto.status.value);
+	$('#lbfaculty').hide();
+if (facultyznach[facultyfilial].length<=6){
+			
+
+			$('#listfaculty').animate(
+				{height:"-="+38.3*facultyznach[facultyfilial].length+"px"},500,function(){
+					$('#listfaculty').hide();
+					facultyflag = false;}
+				);
+			}else{
+				$('#listfaculty').animate(
+				{height:"-="+38.3*6+"px"},500,function(){
+					$('#listfaculty').hide();
+					facultyflag = false;}
+				);
+			}
+
+
+	
+}
+
+
+
+
+
+
+
 
 function countrybronclick() {
 	if(countrybrflag==false) {
@@ -410,10 +430,54 @@ function countrybronclick() {
 	}
 }
 
+function countrybritemclick(numberelement) {
+	document.getElementById("countrybrtext").innerHTML = countrieslist[numberelement];
+	document.auto.countrybr.value = numberelement;
+	$('#lbcountrybr').hide();
+
+	$('#listcountrybr').animate(
+				{height:"-=230px"},500
+				,function(){
+					$('#listcountrybr').hide();
+					countrybrflag = false;
+                }
+			);	
+}
+
+function countrylivonclick() {
+	if(countrylivflag==false) {
+		//alert("ok");
+			$('#listcountryliv').show();
+  
+			$('#listcountryliv').animate(
+				{height:"+=230px"},500, function(){
+					 jQuery('#listcountryliv').jScrollPane({showArrows: true,
+						verticalDragMinHeight: 37,
+       	    			verticalDragMaxHeight: 37}); facultyflag = true;
+				});
+			countrylivflag = true;
+	}
+}
+
+function countrylivitemclick(numberelement) {
+	document.getElementById("countrylivtext").innerHTML = countrieslist[numberelement];
+	document.auto.countryliv.value = numberelement;
+	$('#lbcountryliv').hide();
+
+	$('#listcountryliv').animate(
+				{height:"-=230px"},500
+				,function(){
+					$('#listcountryliv').hide();
+					countrylivflag = false;
+                }
+			);	
+}
+
+
 function addcountriees() {
 	for (var i = 0; i <= (countrieslist.length - 1); i++) {
 		document.getElementById("listcountrybr").innerHTML +='<div class = "listitem" onclick = " countrybritemclick('+i+')">'+countrieslist[i]+'</div>';
-		//document.getElementById("listcountryliv").innerHTML +='<div class = "listitem" onclick = " countrylivonclick('+i+')">'+countrieslist[i]+'</div>';
+		document.getElementById("listcountryliv").innerHTML +='<div class = "listitem" onclick = " countrylivitemclick('+i+')">'+countrieslist[i]+'</div>';
 		
 	};
 }
