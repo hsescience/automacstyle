@@ -281,18 +281,18 @@ facultyznach[4][5] = "Факультет экономики";
 function hideitem(list) {
 	switch (list) {
 		case "statuslist":
-			$('.liststatus').animate(
-				{height:"-=233px"},500,function(){
-					$('.liststatus').hide();
-					statusperson = false;
-                }
-			);	
-			break;
+			$('.liststatus').css("height","0px");
+			$(".liststatus").hide();
+			statusperson = false;
+		break;
 		case "filiallist":
-			break;
+			$('.listfilial').css("height","0px");
+			$(".listfilial").hide();
+			filialflag = false;
 		default:
 		break;
 	}
+	previousitem = "";
 
 }
 
@@ -300,11 +300,13 @@ function hideitem(list) {
 function statusonclick() {
 	if(statusperson==false) {
 
-			
+			hideitem(previousitem);
 			$('.liststatus').show();
   
 			$('.liststatus').animate(
 				{height:"+=233px"},500);
+			
+			previousitem = "liststatus";
 			statusperson = true;
 	}
 }
@@ -313,19 +315,29 @@ function statitemclick(numberelement) {
 	document.getElementById("statustext").innerHTML = statusznach[numberelement];
 	document.auto.status.value = numberelement;
 	$('#lbstatus').hide();
+	//alert(document.auto.status.value);
 
-		hideitem("statuslist");	
+	$('.liststatus').animate(
+				{height:"-=233px"},500
+				,function(){
+					$('.liststatus').hide();
+					statusperson = false;
+                }
+			);	
 }
 
 
 function filialonclick() {
 	if(filialflag==false) {
 			
+			hideitem(previousitem);
 			$('.listfilial').show();
   
 			$('.listfilial').animate(
 				{height:"+=195px"},500);
 			filialflag = true;
+			
+			previousitem = "filiallist";
 	}
 }
 
