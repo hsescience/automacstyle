@@ -280,7 +280,18 @@ facultyznach[4][5] = "Факультет экономики";
 
 function hideitem(list) {
 	switch (list) {
-		case 
+		case "statuslist":
+			$('.liststatus').animate(
+				{height:"-=233px"},500,function(){
+					$('.liststatus').hide();
+					statusperson = false;
+                }
+			);	
+			break;
+		case "filiallist":
+			break;
+		default:
+		break;
 	}
 
 }
@@ -302,15 +313,8 @@ function statitemclick(numberelement) {
 	document.getElementById("statustext").innerHTML = statusznach[numberelement];
 	document.auto.status.value = numberelement;
 	$('#lbstatus').hide();
-	//alert(document.auto.status.value);
 
-	$('.liststatus').animate(
-				{height:"-=233px"},500
-				,function(){
-					$('.liststatus').hide();
-					statusperson = false;
-                }
-			);	
+		hideitem("statuslist");	
 }
 
 
