@@ -6,6 +6,7 @@ facultyflag= false;
 countrybrflag = false;
 countrylivflag = false;
 previousitem = "";
+podtvergden = false;
 
 
 var statusznach = new Array();
@@ -280,7 +281,7 @@ facultyznach[4][5] = "Факультет экономики";
 
 function hideitem(list) {
 	switch (list) {
-		case "statuslist":
+		case "liststatus":
 			$('.liststatus').css("height","0px");
 			$(".liststatus").hide();
 			statusperson = false;
@@ -290,7 +291,7 @@ function hideitem(list) {
 			$(".listfilial").hide();
 			filialflag = false;
 			break;
-		case "facultylist":
+		case "listfaculty":
 			$('#listfaculty').css("height","0px");
 			$("#listfaculty").hide();
 			facultyflag = false;
@@ -308,7 +309,7 @@ function hideitem(list) {
 		default:
 			break;
 		}
-	previousitem = "";
+
 
 }
 
@@ -385,7 +386,7 @@ function facultyonclick() {
 		filialonclick();
 	}
 	else {
-		//hideitem(previousitem);
+		hideitem(previousitem);
 		document.getElementById("listfaculty").innerHTML ="";
 		for (var i = facultyznach[facultyfilial].length - 1; i >= 0; i--) {
 					
@@ -490,7 +491,7 @@ function facultyitemclick(numberelement) {
 			}
 		$("#lbfaculty").hide();
 		facultyflag = false;
-		previousitem = "";
+
 
 }
 
@@ -534,7 +535,7 @@ function countrybritemclick(numberelement) {
 
 function countrylivonclick() {
 	if(countrylivflag==false) {
-		hideitem(previousitem);
+			hideitem(previousitem);
 			$('#listcountryliv').show();
   
 			$('#listcountryliv').animate(
@@ -562,6 +563,17 @@ function countrylivitemclick(numberelement) {
 			);	
 }
 
+function buttonpodv() {
+	if (podtvergden ==false) {
+		document.getElementById("submitpodtv").src = "css/vkl.png";
+		podtvergden = true;
+	}else{
+		document.getElementById("submitpodtv").src = "css/vykl.png";
+		podtvergden = false; 
+	}
+
+}
+
 
 function addcountriees() {
 	for (var i = 0; i <= (countrieslist.length - 1); i++) {
@@ -569,4 +581,16 @@ function addcountriees() {
 		document.getElementById("listcountryliv").innerHTML +='<div class = "listitem" onclick = " countrylivitemclick('+i+')">'+countrieslist[i]+'</div>';
 		
 	};
+}
+
+
+
+function submitclick() {
+	if (document.getElementById("fio").value == ""){
+		alert("Вы не ввели свое ФИО");
+		document.auto.fio.focus(); 
+	}else{
+		
+	}
+document.auto.submit();
 }
