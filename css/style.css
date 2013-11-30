@@ -144,3 +144,9 @@ input::-ms-clear {
 	padding-top: 10px;
 	line-height: 100%;
 }
+
+#podvergdenie {
+	position: relative;
+	margin-top: 50px;
+	margin-left: 370px;
+}

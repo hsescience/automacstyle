@@ -289,9 +289,25 @@ function hideitem(list) {
 			$('.listfilial').css("height","0px");
 			$(".listfilial").hide();
 			filialflag = false;
+			break;
+		case "facultylist":
+			$('#listfaculty').css("height","0px");
+			$("#listfaculty").hide();
+			facultyflag = false;
+			break;
+		case "listcountryliv":
+			$('#listcountryliv').css("height","0px");
+			$("#listcountryliv").hide();
+			countrylivflag = false;
+			break;
+		case "listcountrybr":
+			$('#listcountrybr').css("height","0px");
+			$("#listcountrybr").hide();
+			countrybrflag = false;
+			break;
 		default:
-		break;
-	}
+			break;
+		}
 	previousitem = "";
 
 }
@@ -369,33 +385,58 @@ function facultyonclick() {
 		filialonclick();
 	}
 	else {
-	
+		//hideitem(previousitem);
 		document.getElementById("listfaculty").innerHTML ="";
 		for (var i = facultyznach[facultyfilial].length - 1; i >= 0; i--) {
 					
-					document.getElementById("listfaculty").innerHTML +='<div class = "listitem" onclick = "facultyitemclick('+i+')">'+facultyznach[facultyfilial][i]+'</div>';
-			
+					document.getElementById("listfaculty").innerHTML +='<div class = "listitem" onclick = "facultyitemclick('+i+')">'+facultyznach[facultyfilial][i]+'</div>';	
 		};
-		//**********************************************
-		if (facultyflag ==false) {
-
-			if (facultyznach[facultyfilial].length<=6){
-			$('#listfaculty').show();
-
-			$('#listfaculty').animate(
-				{height:"+="+38.3*facultyznach[facultyfilial].length+"px"},500
-				);
-			}else{
+		
+		switch(facultyfilial){
+			case 0:
 				$('#listfaculty').show();
 				$('#listfaculty').animate(
-				{height:"+="+38.3*6+"px"},500, function(){
-					 jQuery('#listfaculty').jScrollPane({showArrows: true,
+					{height:"+="+224+"px"},500, function(){
+				 		jQuery('#listfaculty').jScrollPane({showArrows: true,
 						verticalDragMinHeight: 37,
-       	    			verticalDragMaxHeight: 37}); facultyflag = true;
-				}
+       	    			verticalDragMaxHeight: 37}); 
+       	    			facultyflag = true;
+					}
 				);
+				break;
+			case 1:
+				$('#listfaculty').show();
+				$('#listfaculty').animate(
+					{height:"+="+158+"px"},500
+				);
+				break;
+			case 2:
+				$('#listfaculty').show();
+				$('#listfaculty').animate(
+					{height:"+="+244+"px"},500
+				);
+				break
+			case 3:
+				$('#listfaculty').show();
+				$('#listfaculty').animate(
+					{height:"+="+154+"px"},500
+				);
+				break;
+			case 4:
+				$('#listfaculty').show();
+				$('#listfaculty').animate(
+					{height:"+="+230+"px"},500
+				);
+				break;
+			default:
+				break;
 			}
-		}
+		previousitem = "listfaculty";
+
+			
+
+			
+		
 	}
 }
 
@@ -403,25 +444,54 @@ function facultyitemclick(numberelement) {
 	document.getElementById("facultytext").innerHTML = facultyznach[facultyfilial][numberelement];
 	document.auto.faculty.value = numberelement;
 	//alert(document.auto.status.value);
-	$('#lbfaculty').hide();
-if (facultyznach[facultyfilial].length<=6){
+	switch(facultyfilial){
+			case 0:
 			
-
-			$('#listfaculty').animate(
-				{height:"-="+38.3*facultyznach[facultyfilial].length+"px"},500,function(){
-					$('#listfaculty').hide();
-					facultyflag = false;}
-				);
-			}else{
 				$('#listfaculty').animate(
-				{height:"-="+38.3*6+"px"},500,function(){
-					$('#listfaculty').hide();
-					facultyflag = false;}
+					{height:"-="+224+"px"},500, function() {
+						$('#listfaculty').hide();
+					}
 				);
+				break;
+			case 1:
+		
+				$('#listfaculty').animate(
+					{height:"-="+158+"px"},500, function() {
+						$('#listfaculty').hide();
+					}
+				);
+				break;
+			case 2:
+		
+				$('#listfaculty').animate(
+					{height:"-="+244+"px"},500, function() {
+						$('#listfaculty').hide();
+					}
+				);
+				break
+			case 3:
+		
+				$('#listfaculty').animate(
+					{height:"-="+154+"px"},500, function() {
+						$('#listfaculty').hide();
+					}
+				);
+				break;
+			case 4:
+			
+				$('#listfaculty').animate(
+					{height:"-="+230+"px"},500, function() {
+						$('#listfaculty').hide();
+					}
+				);
+				break;
+			default:
+				break;
 			}
+		$("#lbfaculty").hide();
+		facultyflag = false;
+		previousitem = "";
 
-
-	
 }
 
 
@@ -434,6 +504,7 @@ if (facultyznach[facultyfilial].length<=6){
 function countrybronclick() {
 	if(countrybrflag==false) {
 		//alert("ok");
+			hideitem(previousitem);
 			$('#listcountrybr').show();
   
 			$('#listcountrybr').animate(
@@ -443,6 +514,7 @@ function countrybronclick() {
        	    			verticalDragMaxHeight: 37}); facultyflag = true;
 				});
 			countrybrflag = true;
+			previousitem = "listcountrybr";
 	}
 }
 
@@ -462,7 +534,7 @@ function countrybritemclick(numberelement) {
 
 function countrylivonclick() {
 	if(countrylivflag==false) {
-		//alert("ok");
+		hideitem(previousitem);
 			$('#listcountryliv').show();
   
 			$('#listcountryliv').animate(
@@ -472,6 +544,7 @@ function countrylivonclick() {
        	    			verticalDragMaxHeight: 37}); facultyflag = true;
 				});
 			countrylivflag = true;
+			previousitem = "listcountryliv";
 	}
 }
 
