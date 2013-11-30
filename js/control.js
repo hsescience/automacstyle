@@ -590,7 +590,37 @@ function submitclick() {
 		alert("Вы не ввели свое ФИО");
 		document.auto.fio.focus(); 
 	}else{
-		
+		if (document.getElementById("status").value == "") {
+				alert("Вы не ввели ваш статус относительно НИУ ВШЭ");
+				statusonclick();
+		}else{
+			if (document.getElementById("filial").value == "") {
+				alert("Вы не выбрали ваш филиал");			
+				filialonclick();
+			}else{
+				if (document.getElementById("faculty").value == "") {
+					alert("Вы не выбрали ваш факультет");			
+					facultyonclick();
+				}else{
+					if (document.getElementById("countrybr").value == "") {
+						alert("Вы не выбрали вашу родную страну");			
+						countrybronclick();
+					}else{
+						if (document.getElementById("countryliv").value == "") {
+							alert("Вы не выбрали вашу страну проживания");			
+							countrylivonclick();
+						}else{
+							if (podtvergden == false) {
+								alert("Вы не подтвердили разрешение на хранение и обработку ваших данных");			
+							}else{
+								document.auto.submit();		
+							}				
+						}				
+					}					
+				}				
+			}			
+		}
+
 	}
-document.auto.submit();
+	//
 }
